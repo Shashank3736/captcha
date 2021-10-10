@@ -1,0 +1,1 @@
+export { createCaptcha } from './src/captcha.ts';

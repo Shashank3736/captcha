@@ -10,7 +10,19 @@ interface captcha {
     trace: SetTraceOption;
     background?: Image;
 }
+/**
+ * Create captcha by using this function.
+ * @param captcha 
+ * @returns { text: string, image: buffer }
+ * @example
+ * import { createCaptcha } from "https://deno.land/x/captcha/mod.ts";
 
+ * const captcha = createCaptcha();
+
+ * console.log(captcha.text);
+
+ * await Deno.writeFile('captcha.png', captcha.image);
+ */
 export function createCaptcha(captcha: captcha = { height: 100, width: 300, captcha: defaultCaptchaOption, decoy: defaultDecoyOptions, trace: defaultTraceOptions}) {
     const canvas = createCanvas(captcha.width, captcha.height);
     const ctx = canvas.getContext("2d");
